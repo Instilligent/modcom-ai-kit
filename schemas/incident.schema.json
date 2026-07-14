@@ -1,0 +1,102 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://modularcompliance.io/schemas/incident.schema.json",
+  "title": "ModComIncidentImport",
+  "description": "Thin JSON twin of the ModCom Incident Markdown import format (schema_version 1.0). Product import forces status ai_draft and requires human review before live use.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "record_type",
+    "title",
+    "severity",
+    "description",
+    "provenance"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "1.0"
+    },
+    "record_type": {
+      "const": "incident"
+    },
+    "title": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 255
+    },
+    "severity": {
+      "type": "string",
+      "enum": ["critical", "high", "medium", "low"]
+    },
+    "classification": {
+      "type": "string",
+      "enum": [
+        "general",
+        "safety",
+        "environmental",
+        "security",
+        "operational",
+        "quality",
+        "hr",
+        "financial"
+      ],
+      "default": "general"
+    },
+    "date_detected": {
+      "type": "string",
+      "format": "date",
+      "description": "YYYY-MM-DD"
+    },
+    "source": {
+      "type": "string"
+    },
+    "location": {
+      "type": "string",
+      "maxLength": 255
+    },
+    "status": {
+      "const": "ai_draft",
+      "description": "Must always be ai_draft for import payloads"
+    },
+    "description": {
+      "type": "string"
+    },
+    "affected_systems": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "immediate_actions_taken": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "control_gaps_identified": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "recommended_next_steps": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "provenance": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["generated_by", "human_review_required"],
+      "properties": {
+        "generated_by": {
+          "const": "ai"
+        },
+        "model_or_tool": {
+          "type": "string"
+        },
+        "generated_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "human_review_required": {
+          "const": true
+        }
+      }
+    }
+  }
+}

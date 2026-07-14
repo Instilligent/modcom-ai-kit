@@ -1,0 +1,35 @@
+{
+  "schema_version": "1.0",
+  "record_type": "incident",
+  "title": "Near-miss slip on wet warehouse floor (aisle B)",
+  "severity": "low",
+  "classification": "operational",
+  "date_detected": "2026-07-14",
+  "source": "Site supervisor verbal report",
+  "location": "Warehouse aisle B, packing zone",
+  "status": "ai_draft",
+  "description": "A contractor reported a near-miss after nearly slipping on a wet section of warehouse floor. No injury. Source of water was a leaking cold-store door seal (per verbal report — requires human verification).",
+  "affected_systems": [
+    "Warehouse packing operations (aisle B)",
+    "Contractor access to cold-store perimeter"
+  ],
+  "immediate_actions_taken": [
+    "Area cordoned and dried",
+    "Wet-floor signs placed",
+    "Maintenance notified of cold-store door seal"
+  ],
+  "control_gaps_identified": [
+    "No scheduled visual check for cold-store door seals in daily open checklist (Unknown — requires human review)"
+  ],
+  "recommended_next_steps": [
+    "Repair or replace cold-store door seal",
+    "Add seal inspection to daily warehouse open checklist",
+    "Brief contractors on spill reporting"
+  ],
+  "provenance": {
+    "generated_by": "ai",
+    "model_or_tool": "example (kit gold fixture — operational low)",
+    "generated_at": "2026-07-14T12:00:00Z",
+    "human_review_required": true
+  }
+}
